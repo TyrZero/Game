@@ -12,12 +12,10 @@ public class Monkren {
 	private ArrayList<Move> moves;
 	private int health, mana, mPT, level;
 	
-	protected Monkren(String name) throws IOException {
+	public Monkren(String name) throws IOException {
 		getAttributes(name);
 		initWeaknesses();
 		initResistances();
-		
-		
 	}
 	
 	protected void initWeaknesses(){
@@ -75,7 +73,7 @@ public class Monkren {
 		this.name = in.nextLine();
 		this.types = new ArrayList<Type>();
 		for(String s : in.nextLine().trim().split(" ")){
-			
+			types.add(Type.parseType(s));
 		}
 		
 		if(types.size() > maxTypes){
@@ -95,6 +93,6 @@ public class Monkren {
 			err.println("Too many moves");
 		}
 		
-		
+		in.close();
 	}
 }

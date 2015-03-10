@@ -23,8 +23,7 @@ public class MonkrensMain implements Runnable {
 	private void initGame() throws IOException {
 		Scanner in = new Scanner(System.in);
 		out.println("Choose a Monkren");
-		String monFileName = in.nextLine() + ".txt";
-		Scanner getMonInfo = new Scanner(new File(monFileName));
-		
+		Monkren mon = new Monkren(in.nextLine());
+		in.close();
 	}
 }

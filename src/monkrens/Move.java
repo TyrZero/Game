@@ -24,7 +24,6 @@ public class Move {
 	}
 	
 	
-	
 	protected String getName(){
 		return this.name;
 	}
