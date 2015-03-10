@@ -1,0 +1,11 @@
+Name - String
+Type - Type(Enum)
+Level - Byte
+Health - Int
+Mana - Int
+MPT - Int
+Move Name - String
+Move Type - Type(Enum)
+Move Damage - Int
+Move Mana Cost - Int
+3 More Moves in same format

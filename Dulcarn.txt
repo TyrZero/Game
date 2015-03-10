@@ -1,0 +1,40 @@
+Dulcarn
+
+Grass
+
+2
+180
+
+120
+
+40
+
+Spike Blast
+
+Grass
+
+40
+
+20
+
+Spike Ball
+
+Grass
+
+60
+
+40
+
+Leaf Sword
+
+Grass
+80
+60
+
+Acorn Fury
+
+Grass
+
+200
+
+160
