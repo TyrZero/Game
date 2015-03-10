@@ -1,0 +1,22 @@
+Dunput
+Earth Fighting
+1
+100
+50
+30
+Killing Cut
+Fighting
+100
+60
+Gord
+Fighting
+60
+30
+Earth Claw
+Earth
+60
+30
+Earth Blast
+Earth
+80
+40
