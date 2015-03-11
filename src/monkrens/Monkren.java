@@ -1,21 +1,48 @@
 package monkrens;
 import java.util.*;
 import java.io.*;
-
 import static java.lang.System.*;
 
 public class Monkren {
-	private final int maxTypes = 3, maxMoves = 4;
-	private String name, ability;
-	private ArrayList<Type> types;
-	private ArrayList<Type> weaknesses, resistances;
-	private ArrayList<Move> moves;
-	private int health, mana, mPT, level;
+	protected final int maxTypes = 3, maxMoves = 4;
+	protected String name, ability;
+	protected ArrayList<Type> types;
+	protected ArrayList<Type> weaknesses, resistances;
+	protected ArrayList<Move> moves;
+	protected int health, mana, mPT, level;
 	
 	public Monkren(String name) throws IOException {
 		getAttributes(name);
 		initWeaknesses();
 		initResistances();
+	}
+	
+	protected void getAttributes(String name) throws IOException {
+		Scanner in = new Scanner(new File(name+".txt"));
+		this.name = in.nextLine();
+		this.types = new ArrayList<Type>();
+		for(String s : in.nextLine().trim().split(" ")){
+			types.add(Type.parseType(s));
+		}
+		
+		if(types.size() > maxTypes){
+			err.println("Too many types");
+		}
+		
+		this.level = in.nextInt();
+		this.health = in.nextInt();
+		this.mana = in.nextInt();
+		this.mPT = in.nextInt();
+		
+		while(in.hasNext()){
+			moves.add(new Move(in.nextLine().trim(), in.nextLine().trim(), in.nextInt(), in.nextInt()));
+		}
+		moves.add(new Move("Spike Blast", Type.GRASS, 40, 20));
+		if(moves.size() > maxMoves){
+			err.println("Too many moves");
+		}
+		
+		in.close();
 	}
 	
 	protected void initWeaknesses(){
@@ -68,31 +95,5 @@ public class Monkren {
 		}
 	}
 	
-	protected void getAttributes(String name) throws IOException {
-		Scanner in = new Scanner(new File(name+".txt"));
-		this.name = in.nextLine();
-		this.types = new ArrayList<Type>();
-		for(String s : in.nextLine().trim().split(" ")){
-			types.add(Type.parseType(s));
-		}
-		
-		if(types.size() > maxTypes){
-			err.println("Too many types");
-		}
-		
-		this.level = in.nextInt();
-		this.health = in.nextInt();
-		this.mana = in.nextInt();
-		this.mPT = in.nextInt();
-		
-		while(in.hasNext()){
-			moves.add(new Move(in.nextLine().trim(), in.nextLine().trim(), in.nextInt(), in.nextInt()));
-		}
-		
-		if(moves.size() > maxMoves){
-			err.println("Too many moves");
-		}
-		
-		in.close();
-	}
+
 }

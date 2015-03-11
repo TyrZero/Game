@@ -13,8 +13,9 @@ public class MonkrensMain implements Runnable {
 	public void run() {
 		try{
 			initGame();
-		}catch(IOException e){
-			out.println("YOU DUN FUCKED UP");
+			
+		}catch(Exception e){
+			err.println("Unidentified Exception");
 			e.printStackTrace(System.err);
 			System.exit(0);
 		}
@@ -24,6 +25,8 @@ public class MonkrensMain implements Runnable {
 		Scanner in = new Scanner(System.in);
 		out.println("Choose a Monkren");
 		Monkren mon = new Monkren(in.nextLine());
-		in.close();
+		while(true){
+			
+		}
 	}
 }
